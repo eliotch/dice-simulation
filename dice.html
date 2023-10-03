@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll Dice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Roll Two Six-Sided Dice</h1>
+    <button id="rollButton">Roll Dice</button>
+    <p id="result"></p>
+
+    <script>
+        
+        function rollDie() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+        function rollTwoDice() {
+            const die1 = rollDie();
+            const die2 = rollDie();
+            const total = die1 + die2;
+
+            const resultElement = document.getElementById("result");
+            resultElement.textContent = `You rolled a ${die1} and a ${die2}. Total: ${total}`;
+        }
+
+        
+        const rollButton = document.getElementById("rollButton");
+        rollButton.addEventListener("click", rollTwoDice);
+    </script>
+</body>
+</html>
